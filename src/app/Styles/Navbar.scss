@@ -1,0 +1,21 @@
+nav {
+    position: fixed;
+    top: 0;
+    padding: 0.25rem;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 20;
+  }
+  
+  .navbar {
+    justify-content: center;
+    margin: 0 auto;
+    display: flex;
+    width: 80ch;
+    max-width: 100%;
+  }
+  
+  nav button {
+    width: 44px;
+    aspect-ratio: 1;
+  }
