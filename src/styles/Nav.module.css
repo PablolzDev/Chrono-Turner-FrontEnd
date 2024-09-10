@@ -1,4 +1,4 @@
-nav {
+.nav {
     position: fixed;
     top: 0;
     padding: 0.25rem;
@@ -15,7 +15,25 @@ nav {
     max-width: 100%;
   }
   
-  nav button {
+  .navButton {
     width: 44px;
     aspect-ratio: 1;
+  }
+  
+  .bearLink {
+    color: canvasText;
+    width: 48px;
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    opacity: 0.8;
+  }
+  
+  .bearLink:hover,
+  .bearLink:focus-visible {
+    opacity: 1;
+  }
+  
+  .bearLink svg {
+    width: 75%;
   }

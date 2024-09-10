@@ -1,10 +1,9 @@
-"use client";
-import styles from '../Styles/Navbar.scss';
+import React from 'react';
+import styles from '../styles/Nav.module.css';
 
-
-const Navbar = () => {
+const Nav = () => {
   return (
-    <nav>
+    <nav className={styles.nav}>
       <div className={styles.navbar}>
         <a
           className={styles.bearLink}
@@ -26,4 +25,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav;

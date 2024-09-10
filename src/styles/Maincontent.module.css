@@ -1,12 +1,4 @@
-.sticker {
-    width: 100%;
-    min-height: 100vh;
-    position: sticky;
-    top: 0;
-    z-index: 2;
-  }
-  
-  .scroller {
+.scroller {
     position: relative;
     min-height: 200vh;
     width: 100%;
@@ -39,17 +31,20 @@
     box-shadow: 0 32px 32px rgba(23,22,24,.04),0 16px 16px rgba(23,22,24,.04),0 8px 8px rgba(23,22,24,.04);
   }
   
-  .scroller .panel {
+  .scrollerPanel {
     background: var(--panel);
   }
   
-  .panel__row {
+  .panelRow {
     container-type: size;
     display: flex;
     justify-content: center;
   }
   
-  .panel {
-    --span: max(45vw, 260px);
+  .sticker {
+    width: 100%;
+    min-height: 100vh;
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
-  
