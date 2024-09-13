@@ -27,10 +27,12 @@
   .hero a {
     color: canvas;
     background: var(--accent);
+    border-radius: 5px;
     text-decoration: none;
-    padding: 1rem 2rem;
-    border-radius: 100px;
-    font-weight: bold;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     position: relative;
   }
   
@@ -39,7 +41,10 @@
     position: absolute;
     inset: 0;
     background: hsl(0 0% 100% / 0);
+    box-shadow: 0 0 20px rgba(86, 71, 185, 0.7);
   }
+
+  
   
   .hero a:is(:hover, :focus-visible)::after {
     background: hsl(0 0% 100% / 0.1);
@@ -94,30 +99,4 @@
     box-shadow: none;
   }
   
-  .ring {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    translate: 0 0%;
-  }
   
-  .ring--over {
-    z-index: 10;
-  }
-  
-  .ring--over img {
-    clip-path: inset(50% 0 0 0);
-  }
-  
-  .ring img {
-    filter: hue-rotate(30deg);
-    width: 100%;
-    min-width: 700px;
-    max-width: 1400px;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    translate: -50% -50%;
-    object-fit: cover;
-  }
