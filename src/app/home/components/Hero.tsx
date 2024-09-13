@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Header.module.css';
+import styles from '../styles/Hero.module.css';
 const Header: React.FC = () => (
   <>
     <Head>
@@ -12,14 +12,17 @@ const Header: React.FC = () => (
     <header className={styles.header}>
       <div className={styles.hero}>
         <div className={styles.content}>
-          <h1>Step up your CSS game,<br /><span>today</span></h1>
-          <p>Start your journey and join thousands of others.</p>
+        <h1>Transforma el caos en <span className="highlight">claridad</span></h1>
+        <p>Una nueva era de organización personal está a punto de</p>
+        <p>comenzar. ¿Estás listo para descubrirla?</p>
+       
+    
           <a
             href="https://twitter.com/intent/follow?screen_name=jh3yy"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Start now
+            Revelar el secreto
           </a>
         </div>
       </div>
