@@ -1,8 +1,20 @@
-import '../app/Styles/Global.scss'
-import type { AppProps } from 'next/app';
+import React from 'react';
+import '../styles/GlobalStyles.css';
+import type { ReactNode } from 'react';
+import Header from './home/components/Header';
 
-function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+interface LayoutProps {
+  children: ReactNode;
 }
 
-export default MyApp;
+const RootLayout = ({ children }: LayoutProps) => {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+};
+
+export default RootLayout;
