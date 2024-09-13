@@ -110,6 +110,7 @@ const Sticker: React.FC = () => (
       </div>
     </div>
   </div>
+
 );
 
 export default Sticker;
