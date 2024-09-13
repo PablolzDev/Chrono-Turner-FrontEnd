@@ -1,8 +1,8 @@
 import React from 'react';
-import Nav from '../components/Nav';
-import Header from '../components/Header';
-import MainContent from '../components/Maincontent'
-import Footer from '../components/Footer';
+import Nav from './home/components/Nav';
+import Header from './home/components/Header';
+import MainContent from './home/components/Maincontent'
+import Footer from './home/components/Footer';
 
 const Home = () => {
   return (

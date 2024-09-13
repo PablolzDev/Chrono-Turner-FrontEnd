@@ -1,3 +1,4 @@
+/* styles/NavBar.module.css */
 .nav {
     position: fixed;
     top: 0;
@@ -15,11 +16,6 @@
     max-width: 100%;
   }
   
-  .navButton {
-    width: 44px;
-    aspect-ratio: 1;
-  }
-  
   .bearLink {
     color: canvasText;
     width: 48px;
@@ -29,11 +25,10 @@
     opacity: 0.8;
   }
   
-  .bearLink:hover,
-  .bearLink:focus-visible {
-    opacity: 1;
-  }
-  
   .bearLink svg {
     width: 75%;
+  }
+  
+  :where(.x-link, .bearLink):is(:hover, :focus-visible) {
+    opacity: 1;
   }
