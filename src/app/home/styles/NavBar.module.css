@@ -1,4 +1,5 @@
-nav {
+/* styles/NavBar.module.css */
+.nav {
     position: fixed;
     top: 0;
     padding: 0.25rem;
@@ -15,7 +16,19 @@ nav {
     max-width: 100%;
   }
   
-  nav button {
-    width: 44px;
+  .bearLink {
+    color: canvasText;
+    width: 48px;
     aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    opacity: 0.8;
+  }
+  
+  .bearLink svg {
+    width: 75%;
+  }
+  
+  :where(.x-link, .bearLink):is(:hover, :focus-visible) {
+    opacity: 1;
   }

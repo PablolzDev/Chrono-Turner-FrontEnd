@@ -1,17 +1,16 @@
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import React from 'react';
+import Nav from './home/components/Nav';
+import Header from './home/components/Header';
+import MainContent from './home/components/Maincontent'
+import Footer from './home/components/Footer';
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
-      <Hero />
-      <main>
-        <section>
-          <h2>Pretty rad.</h2>
-        </section>
-      </main>
-      <footer>ʕ•ᴥ•ʔ jhey &copy; 2024</footer>
+      <Nav />
+      <Header />
+      <MainContent />
+      <Footer />
     </div>
   );
 };
