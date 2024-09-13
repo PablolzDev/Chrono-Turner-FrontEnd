@@ -1,0 +1,60 @@
+{
+    "users": [
+        {
+            "id": "1",
+            "name": "John Doe",
+            "email": "john@example.com",
+            "password": "123456",
+            "type_user": 1,
+            "last_access_date": "2024-09-01T10:00:00",
+            "registration_date": "2023-09-01T10:00:00"
+        },
+        {
+            "id": "2",
+            "name": "Jane Smith",
+            "email": "jane@example.com",
+            "password": "abcdef",
+            "type_user": 2,
+            "last_access_date": "2024-09-02T11:00:00",
+            "registration_date": "2023-09-02T11:00:00"
+        }
+    ],
+    "tasks": [
+        {
+            "id": "1",
+            "description": "Complete report",
+            "status_sub_task": 0,
+            "status_task": 1,
+            "expiration_date": "2024-09-15T12:00:00",
+            "category_id": "1",
+            "goal_id": "1",
+            "priority_id": "1",
+            "user_entity_id": "1"
+        }
+    ],
+    "goals": [
+        {
+            "id": "1",
+            "description": "Improve productivity",
+            "status": 1,
+            "start_date": "2024-09-01T08:00:00",
+            "end_date": "2024-12-31T17:00:00",
+            "user_id": "1"
+        }
+    ],
+    "categories": [
+        {
+            "id": "1",
+            "name": "Work",
+            "description": "Tasks related to work",
+            "colour": "#ff5733"
+        }
+    ],
+    "priorities": [
+        {
+            "id": "1",
+            "name": "High",
+            "description": "High priority tasks"
+        }
+    ]
+}
