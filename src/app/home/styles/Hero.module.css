@@ -4,6 +4,40 @@
     position: relative;
     width: 100%;
   }
+  /* styles/NavBar.module.css */
+.nav {
+  position: fixed;
+  top: 0;
+  padding: 0.25rem;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 20;
+}
+
+.navbar {
+  justify-content: center;
+  margin: 0 auto;
+  display: flex;
+  width: 80ch;
+  max-width: 100%;
+}
+
+.bearLink {
+  color: canvasText;
+  width: 48px;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  opacity: 0.8;
+}
+
+.bearLink svg {
+  width: 75%;
+}
+
+:where(.x-link, .bearLink):is(:hover, :focus-visible) {
+  opacity: 1;
+}
   
   .hero {
     top: 0;
@@ -16,6 +50,26 @@
     z-index: 3;
     padding-top: 2rem;
   }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  .visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+  }
+  
+  /* Mantén tus estilos existentes para .navbar y .bearLink */
   
   .hero p {
     font-size: 1.25rem;
