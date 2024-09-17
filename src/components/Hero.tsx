@@ -12,11 +12,11 @@ const Header: React.FC = () => (
     <header className={styles.header}>
       <div className={styles.hero}>
         <div className={styles.content}>
-        <h1>Transforma el caos en <span className="highlight">claridad</span></h1>
-        <p>Una nueva era de organización personal está a punto de</p>
-        <p>comenzar. ¿Estás listo para descubrirla?</p>
-       
-    
+          <h1>Transforma el caos en <span className="highlight">claridad</span></h1>
+          <p>Una nueva era de organización personal está a punto de</p>
+          <p>comenzar. ¿Estás listo para descubrirla?</p>
+
+
           <a
             href="https://twitter.com/intent/follow?screen_name=jh3yy"
             target="_blank"
@@ -26,15 +26,15 @@ const Header: React.FC = () => (
           </a>
         </div>
       </div>
+
+      {/* panel home */}
       <div className={styles.scroller}>
         <div className={styles.content}>
           <div className={styles.panel}>
+            
+            {/* card */}
             <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+
           </div>
         </div>
       </div>
