@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import styles from '../styles/Hero.module.css';
+import styles from '@styles/Hero.module.css';
 const Header: React.FC = () => (
   <>
     <Head>
