@@ -1,6 +1,6 @@
 // components/Main.js
 import React from 'react';
-import styles from '../styles/Main.module.css';
+import styles from '@styles/Main.module.css';
 
 const Main: React.FC = () => (
   <main className={styles.main}>

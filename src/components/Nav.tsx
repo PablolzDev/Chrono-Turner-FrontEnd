@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import styles from '../styles/Hero.module.css';
+import styles from '@styles/NavBar.module.css';
 
 const Nav: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
