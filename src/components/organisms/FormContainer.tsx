@@ -1,9 +1,10 @@
+"use client"
+
 import React from 'react';
 import SignInForm from '../molecules/SignInForm';
 import SignUpForm from '../molecules/SignUpForm';
 import styles from '@styles/form.module.css'
-import useFormToggle from '@/hooks/useFormToggle';
-
+import useFormToggle from '../../hooks/useFormToggle';
 const FormContainer: React.FC = () => {
   const { isSignUp, toggleForm } = useFormToggle(); 
 

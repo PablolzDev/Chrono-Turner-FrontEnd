@@ -11,4 +11,5 @@ const useFormToggle = (initialState = false) => {
   return { isSignUp, toggleForm };
 };
 
+
 export default useFormToggle;
