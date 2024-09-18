@@ -5,9 +5,9 @@ type InputFieldProps = {
   type: string;
 };
 const InputField: React.FC<InputFieldProps> = ({label, type}) => (
-  <label>
-      <span>{label}</span>
-      <input type="{type}"></input>
+  <label id="label">
+      <span id="span">{label}</span>
+      <input type="{type}" id="input"></input>
   </label>
 );
 

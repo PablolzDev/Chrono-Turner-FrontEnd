@@ -17,7 +17,6 @@ const Home = () => {
         <div className={styles.hero}></div>
       </div>
       <Main />
-      <FormContainer/>
       <Footer />
     </div>
   );
