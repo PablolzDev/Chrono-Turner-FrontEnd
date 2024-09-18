@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/globals.css';
 import type { ReactNode } from 'react';
-import Nav from '../components/Nav';
+import Nav from '../components/molecules/Nav';
 
 interface LayoutProps {
   children: ReactNode;
