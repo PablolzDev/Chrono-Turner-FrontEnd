@@ -1,10 +1,12 @@
+'use client'
 import React from 'react';
 
 import styles from '@/styles/Hero.module.css';
-import Header from '@/components/Hero';
-import Nav from '@/components/Nav';
-import Footer from '@/components/Footer';
-import Main from '@/components/Main';
+import Header from '@/components/organisms/Hero';
+import Nav from '@/components/molecules/Nav';
+import Footer from '@/components/molecules/Footer';
+import Main from '@/components/molecules/Main';
+import FormContainer from '@/components/organisms/FormContainer';
 
 const Home = () => {
   return (
@@ -15,6 +17,7 @@ const Home = () => {
         <div className={styles.hero}></div>
       </div>
       <Main />
+      <FormContainer/>
       <Footer />
     </div>
   );
