@@ -2,7 +2,7 @@
 import React from 'react';
 
 import styles from '@/styles/Hero.module.css';
-import Header from '@/components/molecules/Hero';
+import Header from '@/components/organisms/Hero';
 import Nav from '@/components/molecules/Nav';
 import Footer from '@/components/molecules/Footer';
 import Main from '@/components/molecules/Main';
