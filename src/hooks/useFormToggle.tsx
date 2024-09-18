@@ -1,12 +1,14 @@
-
+"use client";
 import { useState } from 'react';
 
-export const useFormToggle = () => {
-  const [isSignUp, setIsSignUp] = useState(false);
+const useFormToggle = (initialState = false) => {
+  const [isSignUp, setIsSignUp] = useState(initialState);
 
   const toggleForm = () => {
-    setIsSignUp(!isSignUp);
+    setIsSignUp(prev => !prev);
   };
 
   return { isSignUp, toggleForm };
 };
+
+export default useFormToggle;
