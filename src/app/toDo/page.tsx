@@ -3,12 +3,12 @@
 import Login from '@/components/organisms/FormContainer';
 import React, { useState } from 'react';
 
-const Auth: React.FC = () => {
+const ToDo: React.FC = () => {
   return (
-    <div className="Auth">
-      <Login />
+    <div className="to-do">
+      <h1>Holaaaaaaa</h1>
     </div>
   );
 };
 
-export default Auth;
+export default ToDo;

@@ -1,8 +1,10 @@
-.cont {
+/* .cont {
   width: 900px;
-  margin: 0 auto;
-  background: white;
+  margin: 100px auto;
+  background: rgb(221, 33, 33);
   position: relative;
+  padding: 30px;
+
 }
 
 .form {
@@ -45,4 +47,4 @@
   left: 20px;
   color: white;
   cursor: pointer;
-}
+} */
