@@ -1,14 +1,16 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import styles from '@styles/NavBar.module.css';
+import { Nav as StyledNav, Navbar, BearLink } from '@styles/styles';
 
 const Nav: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
-      const heroHeight = window.innerHeight; // Usa la altura de la ventana como referencia
-      if (window.scrollY > heroHeight) {
+      const heroHeight = window.innerHeight;
+      const scrollPosition = window.pageYOffset;
+
+      if (scrollPosition > heroHeight) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
@@ -16,24 +18,25 @@ const Nav: React.FC = () => {
     };
 
     window.addEventListener('scroll', toggleVisibility);
+    toggleVisibility(); // Check initial state
+
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
   return (
-    <nav className={`${styles.nav} ${isVisible ? styles.visible : styles.hidden}`}>
-      <div className={styles.navbar}>
-        <a
-          className={styles.bearLink}
+    <StyledNav className={isVisible ? 'visible' : 'hidden'}>
+      <Navbar>
+        <BearLink
           href="https://twitter.com/intent/follow?screen_name=jh3yy"
           target="_blank"
           rel="noreferrer noopener"
         >
-          <svg className="w-9" viewBox="0 0 969 955" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg viewBox="0 0 969 955" fill="none" xmlns="http://www.w3.org/2000/svg">
             {/* SVG content without paths */}
           </svg>
-        </a>
-      </div>
-    </nav>
+        </BearLink>
+      </Navbar>
+    </StyledNav>
   );
 };
 

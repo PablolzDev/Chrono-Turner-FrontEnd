@@ -1,20 +1,20 @@
 import React from 'react'
-import styles from'@styles/FeatureSection.module.css'
+import { FeatureItemWrapper, FeatureIcon, FeatureContent, FeatureTitle, FeatureDescription } from '@styles/styles'
 
-type ItemProps = {
-    icon: string,
-    title: string,
-    description:string
+interface FeatureItemProps {
+  icon: string;
+  title: string;
+  description: string;
 }
 
-const FeatureItem: React.FC<{ icon: string; title: string; description: string }> = ({ icon, title, description }) => (
-    <div className={styles.featureItem}>
-      <div className={styles.featureIcon}>{icon}</div>
-      <div>
-        <h3 className={styles.featureTitle}>{title}</h3>
-        <p className={styles.featureDescription}>{description}</p>
-      </div>
-    </div>
-  );
+const FeatureItem: React.FC<FeatureItemProps> = ({ icon, title, description }) => (
+  <FeatureItemWrapper>
+    <FeatureIcon>{icon}</FeatureIcon>
+    <FeatureContent>
+      <FeatureTitle>{title}</FeatureTitle>
+      <FeatureDescription>{description}</FeatureDescription>
+    </FeatureContent>
+  </FeatureItemWrapper>
+);
 
-export default FeatureItem
+export default FeatureItem;
