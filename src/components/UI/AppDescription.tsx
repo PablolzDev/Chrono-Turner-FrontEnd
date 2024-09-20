@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const DescriptionContainer = styled.div`
   max-width: 700px;
   margin: 3rem auto;
+  margin-left: 8rem;
   padding: 2rem;
   text-align: left;
 `;
