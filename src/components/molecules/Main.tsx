@@ -1,13 +1,13 @@
-// components/Main.js
 import React from 'react';
-import styles from '@styles/Main.module.css';
+import { Content } from '@styles/styles';
+import FeatureSection from './FeatureSection';
 
 const Main: React.FC = () => (
-  <main className={styles.main}>
+  <Content>
     <section>
-      <h2>Pretty rad.</h2>
+      <FeatureSection />
     </section>
-  </main>
+  </Content>
 );
 
 export default Main;

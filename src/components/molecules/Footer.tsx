@@ -1,9 +1,8 @@
-// components/Footer.js
 import React from 'react';
-import styles from '@styles/Footer.module.css';
+import { Footer as StyledFooter } from '../../styles/styles';
 
 const Footer: React.FC = () => (
-  <footer className={styles.footer}>ʕ•ᴥ•ʔ jhey &copy; 2024</footer>
+  <StyledFooter>ʕ•ᴥ•ʔ jhey &copy; 2024</StyledFooter>
 );
 
 export default Footer;
