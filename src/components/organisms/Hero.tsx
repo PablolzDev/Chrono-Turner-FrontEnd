@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import { HeroSection, Content, PanelContainer } from '@styles/styles'; // Asegúrate de importar correctamente
 import Video from '@components/molecules/Video';
+import AppDescription from '../UI/AppDescription';
+import WhyChooseUs from '../molecules/why-choose-us-component';
 
 const Header: React.FC = () => (
   <>
@@ -26,7 +28,10 @@ const Header: React.FC = () => (
     </HeroSection>
     <PanelContainer>
       <Video />
-      <p>Hola </p>
+      <AppDescription />
+    </PanelContainer>
+    <PanelContainer>
+      <WhyChooseUs />   
     </PanelContainer>
   </>
 );

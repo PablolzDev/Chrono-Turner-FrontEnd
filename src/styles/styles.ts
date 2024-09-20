@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     --element: hsl(0 0% 90%);
     --accent: rgb(114, 114, 189);
     --panel: hsl(240 38% 98%);
+    --black:  hsl(200 19% 18%)
   }
 
   html {
@@ -325,6 +326,7 @@ export const MainHeading = styled.h1`
   font-size: 2.5rem;
   text-align: center;
   margin-bottom: 1rem;
+  color: hsl(200, 19%, 18%);
 `;
 
 
