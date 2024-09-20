@@ -1,5 +1,6 @@
-import { Button, ErrorMessage, ImageContainer, Input, LoginContainer, LoginForm, Title } from '@/styles/styles';
+import { Button, ContainerLogo, ErrorMessage, ImageContainer, Img, Input, Label, LoginContainer, LoginForm, SigInOption, Span, Title } from '@/styles/styles';
 import React, { useState } from 'react';
+import { ContainerPass} from '../../styles/styles';
 
 interface LoginData {
   email: string;
@@ -44,30 +45,47 @@ const Login: React.FC = () => {
   };
 
   return (
-    <LoginContainer>
-      <LoginForm onSubmit={handleSubmit}>
-        <Title>Welcome Back</Title>
-        <Input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={loginData.email}
-          onChange={handleChange}
-          required
-        />
-        <Input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={loginData.password}
-          onChange={handleChange}
-          required
-        />
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="submit">Log In</Button>
-      </LoginForm>
-      <ImageContainer />
+    <>
+      <LoginContainer>
+        
+        <LoginForm onSubmit={handleSubmit}>
+        <ContainerLogo>
+        <Img src='/utils/Logo.png'></Img>
+        </ContainerLogo>
+          <Title>Sign In</Title>
+          <Span>Enter your username and password to access your account</Span>
+          <Label>Username</Label>
+          <Input
+            type="email"
+            name="email"
+            value={loginData.email}
+            onChange={handleChange}
+            required
+          />
+          <ContainerPass>
+            <Label>Password</Label>
+              <a href="">Forgot your password?</a>
+          </ContainerPass>
+          <Input
+            type="password"
+            name="password"
+            value={loginData.password}
+            onChange={handleChange}
+            required
+          />
+          {error && <ErrorMessage>{error}</ErrorMessage>}
+          
+          <Button type="submit">Sign In</Button>
+          <SigInOption>
+            <p>Already have an account?<a href="">Sign in</a></p>
+          </SigInOption>
+        </LoginForm>
+        <ImageContainer>
+          <Img src='/utils/img-login-removebg-preview.png'></Img>
+        </ImageContainer> 
     </LoginContainer>
+    </>
+
   );
 };
 

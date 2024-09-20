@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from 'styled-components';
+import Image from 'next/image';
 
 // Global Styles
 export const GlobalStyle = createGlobalStyle`
@@ -233,27 +234,52 @@ export const Footer = styled.footer`
   display: grid;
   place-items: center;
 `;
+
+//Login styles
+
 export const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
-  font-family: Arial, sans-serif;
 `;
 
+export const ContainerLogo = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  img{
+    width: 30%;
+  }
+`
+
 export const LoginForm = styled.form`
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 50px;
-  background-color: #f5f5f5;
+  padding:  10%;
+  gap: 5px;
+  width: 50%;
 `;
 
 export const Title = styled.h2`
   margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
+  font-size: 34px;
+  color: var(--accent);
+  text-align: center;
+
 `;
 
+export const Span = styled.span`
+  font-size: 1.2rem;
+  color: #666 ; 
+  text-align: center;
+  margin-bottom: 35px;
+`;
+
+export const Label = styled.label `
+  color:hsl(200, 19%, 18%);
+  font-size: 20px;
+  
+`;
 export const Input = styled.input`
   margin-bottom: 15px;
   padding: 10px;
@@ -262,9 +288,20 @@ export const Input = styled.input`
   font-size: 16px;
 `;
 
+export const ContainerPass = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  a{
+    color: hsl(200, 19%, 18%);
+    font-size: 20px;
+  }
+`
+
 export const Button = styled.button`
   padding: 10px;
-  background-color: #007bff;
+  background-color: var(--accent);
   color: white;
   border: none;
   border-radius: 4px;
@@ -273,23 +310,43 @@ export const Button = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: hsl(200, 19%, 18%);
   }
 `;
 
 export const ImageContainer = styled.div`
   flex: 1;
-  background-image: url('/utils/img-login.jpeg');
-  background-size: cover;
-  background-position: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
+
+export const Img = styled.img`
+  width: 100%;
+`
 
 export const ErrorMessage = styled.p`
   color: red;
   margin-bottom: 15px;
 `;
 
+export const SigInOption = styled.div`
+  color: hsl(200, 19%, 18%) ;
+  width: 100%;
+  text-align: center;
 
+  p{
+    
+  }
+
+  a{
+    color: var(--accent);
+    margin: 5px;
+  }
+
+
+`
 
 export const FeatureItemWrapper = styled.div`
   display: flex;
@@ -318,7 +375,7 @@ export const Container = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  font-family: Arial, sans-serif;
+
 `;
 
 export const MainHeading = styled.h1`
