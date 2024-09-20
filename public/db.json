@@ -47,6 +47,18 @@
       "id": "fdde",
       "email": "john@example.com",
       "password": "123456"
+    },
+    {
+      "id": "52b7",
+      "name": "SHIRLY  MEJIA ",
+      "email": "mejiaacostashirlipaola@gmail.com",
+      "password": "1234567890"
+    },
+    {
+      "id": "c258",
+      "name": "Jose Miguel ",
+      "email": "mejiaacosirlipaola@gmail.com",
+      "password": "12345"
     }
   ],
   "tasks": [

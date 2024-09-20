@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
     --element: hsl(0 0% 90%);
     --accent: rgb(114, 114, 189);
     --panel: hsl(240 38% 98%);
-    --black:  hsl(200 19% 18%)
+    --black:  hsl(200, 19%, 18%)
   }
 
   html {
@@ -262,9 +262,8 @@ export const LoginForm = styled.form`
 `;
 
 export const Title = styled.h2`
-  margin-bottom: 20px;
   font-size: 34px;
-  color: var(--accent);
+  color:  var(--black);;
   text-align: center;
 
 `;
@@ -277,7 +276,7 @@ export const Span = styled.span`
 `;
 
 export const Label = styled.label `
-  color:hsl(200, 19%, 18%);
+  color:var(--black);
   font-size: 20px;
   
 `;
@@ -295,7 +294,7 @@ export const ContainerPass = styled.div`
   align-items: center;
 
   a{
-    color: hsl(200, 19%, 18%);
+    color: var(--black);
     font-size: 20px;
   }
 `
@@ -311,7 +310,7 @@ export const Button = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: hsl(200, 19%, 18%);
+    background-color: var(--black);
   }
 `;
 
