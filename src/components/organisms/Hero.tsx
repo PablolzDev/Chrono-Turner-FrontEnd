@@ -14,7 +14,7 @@ const Header: React.FC = () => (
     </Head>
     <HeroSection>
       <Content>
-        <h1>Transforma el caos en <span>claridad</span></h1>
+        <h1>Turning chaos into  <span>clarity</span></h1>
         <p>Una nueva era de organización personal está a punto de</p>
         <p>comenzar. ¿Estás listo para descubrirla?</p>
         <a
