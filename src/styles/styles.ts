@@ -324,8 +324,9 @@ export const Container = styled.div`
 
 export const MainHeading = styled.h1`
   font-size: 2.5rem;
-  text-align: center;
+  text-align: right;
   margin-bottom: 1rem;
+  margin-left: 8rem;
   color: hsl(200, 19%, 18%);
 `;
 
@@ -350,7 +351,25 @@ export const LayoutWrapper = styled.div`
 export const Card = styled.div`
   background: white;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -16px 11px 14px -6px rgba(200,200,235,1);
+-moz-box-shadow: -16px 11px 14px -6px rgba(200,200,235,1);
+box-shadow: -16px 11px 14px -6px rgba(200,200,235,1);
+  padding: 1.5rem;
+  width: calc(50% - 1rem);
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
+
+export const CardFeatures = styled.div`
+  margin-top: 5rem;
+  background: white;
+   
+  border-radius: 8px;
+  -webkit-box-shadow: 10px 10px 12px -1px rgba(200,200,235,1);
+-moz-box-shadow: 10px 10px 12px -1px rgba(200,200,235,1);
+box-shadow: 10px 10px 12px -1px rgba(200,200,235,1);
   padding: 1.5rem;
   width: calc(50% - 1rem);
 

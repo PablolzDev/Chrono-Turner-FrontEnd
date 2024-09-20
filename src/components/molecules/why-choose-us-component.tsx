@@ -5,14 +5,15 @@ import { CheckCircle, Zap, Smile } from 'lucide-react';
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  max-width: 1650px;
+  max-width: 1470px;
   margin: 4rem auto;
   padding: 2rem;
 `;
 
 const TextSection = styled.div`
   flex: 1;
-  padding-right: 2rem;
+  margin-right: 9rem;
+  ;
 `;
 
 const Title = styled.h2`
