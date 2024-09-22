@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import { Nav as StyledNav, Navbar, BearLink, MobileMenu, MobileNavLink, MobileDivider } from '@styles/styles';
-import { StyledLink, NbgButton, Divider, HamburgerButton, } from '@styles/styles';
+import { Nav as StyledNav, Navbar, BearLink} from '@styles/styles';
+import { StyledLink, NbgButton, Divider, } from '@styles/styles';
 import { Menu, X } from 'lucide-react'
 import Image from 'next/image';
 
