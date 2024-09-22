@@ -1,15 +1,16 @@
 import React from "react";
 
-
-type ButtonProps = {
+export type ButtonProps = {
   text: string;
   onClick?: () => void;
   type?: 'button' | 'submit';
+  className?: string; // Añade esta línea
 };
-const Button: React.FC<ButtonProps> = ({ text, onClick, type = 'button' }) => (
-  <button type={type} onClick={onClick} id="button">
+
+const ButtonComponent: React.FC<ButtonProps> = ({ text, onClick, type = 'button', className }) => (
+  <button className={className} onClick={onClick} type={type}>
     {text}
   </button>
 );
 
-export default Button;
+export default ButtonComponent;

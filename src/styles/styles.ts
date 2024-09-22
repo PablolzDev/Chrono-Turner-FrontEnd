@@ -1,5 +1,9 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import Image from 'next/image';
+import styled, { createGlobalStyle,css } from 'styled-components';
+import Link, { LinkProps } from 'next/link';
+import { NavLink } from './Footer';
+
+
+
 
 // Global Styles
 export const GlobalStyle = createGlobalStyle`
@@ -10,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --border: hsl(0 0% 80%);
     --card: hsl(0 0% 98%);
-    --element: hsl(0 0% 90%);
+    --element: #FFA07A;
     --accent: rgb(114, 114, 189);
     --panel: hsl(240 38% 98%);
     --black:  hsl(200, 19%, 18%)
@@ -73,13 +77,17 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 // NavBar Styles
+
 export const Nav = styled.nav`
   position: fixed;
+  display: flex;
+  justify-content: space-between;
   top: 0;
   left: 0;
   right: 0;
   padding: 0.25rem;
   width: 100%;
+  height: 80px;
   backdrop-filter: blur(10px);
   z-index: 20;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -98,10 +106,14 @@ export const Nav = styled.nav`
 
 export const Navbar = styled.div`
   justify-content: center;
+  align-items: center;
   margin: 0 auto;
   display: flex;
+  gap: 1rem  ;
   width: 80ch;
   max-width: 100%;
+  max-height: 100%;
+
 `;
 
 export const BearLink = styled.a`
@@ -111,6 +123,7 @@ export const BearLink = styled.a`
   display: grid;
   place-items: center;
   opacity: 0.8;
+  
 
   svg {
     width: 75%;
@@ -121,9 +134,94 @@ export const BearLink = styled.a`
   }
 `;
 
-export const XLink = styled(BearLink)`
-  /* Estilos específicos para XLink si son necesarios */
+export const Divider = styled.div`
+  height: 24px;
+  width: 1px;
+  background-color: var(--black);
+  margin-top:15px;
+  margin-left: 15px;
 `;
+
+
+
+export const StyledLink = styled(Link)<LinkProps>`
+  // Tus estilos aquí
+  background-color: var(--accent);
+  width: 220px;
+  font-size: 1.1rem;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  
+  
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
+
+export const NbgButton = styled(Link)`
+  // Tus estilos aquí
+ 
+  font-size: 1.1rem;
+  color: var(--black);
+  padding: 10px 20px;
+  margin-top: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  &:hover, &:focus-visible {
+    opacity: 1;
+  }
+  
+  &:hover {
+    background-color: var(--panel);
+    border: none;
+    border-radius: 5px;
+  }
+`;
+
+export const HamburgerButton = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`
+
+export const MobileMenu = styled.div<{ isOpen: boolean }>`
+  display: none;
+
+  @media (max-width: 768px) {
+    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 1000;
+  }
+`
+
+export const MobileNavLink = styled(NbgButton)`
+  padding: 0.5rem 0;
+`;
+
+export const MobileDivider = styled(Divider)`
+  width: 100%;
+  height: 1px;
+  margin: 0.5rem 0;
+`;
+
 
 // Hero Styles
 export const HeroSection = styled.section`
@@ -160,7 +258,6 @@ export const HeroSection = styled.section`
 `;
 
 // Video Styles
-
 export const Video = styled.video`
   width: 100%;
   max-width: 600px;
@@ -171,18 +268,19 @@ export const Video = styled.video`
   margin: auto;
   display: block;
 
-  /* Responsivo para pantallas más pequeñas */
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
     border-radius: 6px;
   }
 
   @media (max-width: 480px) {
-    max-width: 100%;
     border-radius: 4px;
   }
 `;
-
 
 // Content Styles
 export const Content = styled.div`
@@ -195,10 +293,18 @@ export const Content = styled.div`
   gap: 1rem;
 `;
 
+
 export const PanelContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 20px;
+  max-width: 1470px;
+  margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    padding: 10px;
+  }
 `;
 
 export const TextContainer = styled.div`
@@ -299,7 +405,7 @@ export const ContainerPass = styled.div`
   }
 `
 
-export const Button = styled.button`
+export const ButtonA = styled.button`
   padding: 10px;
   background-color: var(--accent);
   color: white;
@@ -500,7 +606,7 @@ export const CTAButton = styled.button`
   display: block;
   margin: 3rem auto 0;
   padding: 0.75rem 1.5rem;
-  background-color: #3b82f6;
+  background-color: var(--accent);
   color: white;
   border: none;
   border-radius: 4px;
@@ -511,4 +617,78 @@ export const CTAButton = styled.button`
   &:hover {
     background-color: #2563eb;
   }
+`;
+
+
+export const ContainerChoose = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 4rem auto;
+  padding: 2rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    margin: 2rem auto;
+    padding: 1rem;
+  }
+`;
+
+export const TextSection = styled.div`
+  flex: 1;
+  margin-right: 2rem;
+
+  @media (max-width: 1024px) {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+`;
+
+export const TitleChoose = styled.h2`
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+  }
+`;
+
+export const Description = styled.p`
+  font-size: 1.1rem;
+  max-width: 85%;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const FeatureListChoose = styled.ul`
+  list-style-type: none;
+  padding: 0;
+`;
+
+export const FeatureItemChoose = styled.li`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  color: #444;
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+  }
+`;
+
+export const IconWrapper = styled.span`
+  margin-right: 1rem;
+  color: #4a90e2;
 `;
