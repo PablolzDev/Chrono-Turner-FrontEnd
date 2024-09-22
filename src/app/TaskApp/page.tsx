@@ -1,11 +1,10 @@
 'use client'
 import React, { useState } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+
 
 import { Calendar, Star, Hash, Users, Trash, Inbox, Home, Sun, Zap } from 'lucide-react';
 import Nav from '@/components/molecules/Nav';
 import { Category, ContentCategories, GlobalStyle, Header, LeftBar, LeftContent, MenuItem, PageContent, RightBar, RightContent, Tag, Task, TaskBox, TaskManager, TasksWrapper } from '@/styles/Tasks';
-
 
 
 const TaskManagerPage: React.FC = () => {
@@ -35,10 +34,10 @@ const TaskManagerPage: React.FC = () => {
         <PageContent>
           <Header>Today Tasks</Header>
           <ContentCategories>
-            {['All', 'Important', 'Notes', 'Links'].map(category => (
-              <Category 
+            {['All', 'Upcoming', 'Status'].map(category => (
+              <Category
                 key={category}
-                active={activeCategory === category}
+                $active={activeCategory === category}
                 onClick={() => setActiveCategory(category)}
               >
                 {category}
@@ -53,7 +52,7 @@ const TaskManagerPage: React.FC = () => {
               </label>
               <Tag className="approved">Approved</Tag>
             </Task>
-            {/* ... (añade más tareas aquí) */}
+            {/* ... (add more tasks here) */}
           </TasksWrapper>
         </PageContent>
 
@@ -63,7 +62,7 @@ const TaskManagerPage: React.FC = () => {
               <div>08:00 - 09:00 AM</div>
               <div>Product Review</div>
             </TaskBox>
-            {/* ... (añade más cajas de tareas aquí) */}
+            {/* ... (add more task boxes here) */}
           </RightContent>
         </RightBar>
       </TaskManager>
