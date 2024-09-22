@@ -16,7 +16,7 @@ export default function PricingComponent() {
     },
     {
       name: 'Pro',
-      price: '$15',
+      price: '$3',
       features: ['Unlimited projects', 'Unlimited tasks', 'Advanced task management', 'Team collaboration'],
       cta: 'Get started',
     },
