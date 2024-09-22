@@ -9,34 +9,11 @@ import Image from 'next/image';
 
 
 const Nav: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
-
-  useEffect(() => {
-    const toggleVisibility = () => {
-      const heroHeight = window.innerHeight;
-      const scrollPosition = window.pageYOffset;
-
-      if (scrollPosition > heroHeight) {
-        setIsVisible(true)
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', toggleVisibility);
-    toggleVisibility(); // Check initial state
-
-    return () => window.removeEventListener('scroll', toggleVisibility);
-  }, []);
+  
 
 
   return (
-    <StyledNav className={isVisible ? 'visible' : 'hidden'}>
+    <StyledNav>
       <Navbar>
         <BearLink
           href="https://twitter.com/intent/follow?screen_name=jh3yy"
@@ -64,16 +41,6 @@ const Nav: React.FC = () => {
 
 
       </Navbar>
-      <HamburgerButton onClick={toggleMenu} aria-label="Toggle menu" aria-expanded={isMenuOpen}>
-        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-      </HamburgerButton>
-      <MobileMenu isOpen={isMenuOpen}>
-        <MobileNavLink href="/">Home</MobileNavLink>
-        <MobileNavLink href="/pricing">Pricing</MobileNavLink>
-        <MobileDivider aria-hidden="true" />
-        <MobileNavLink href="/login">Log in</MobileNavLink>
-        <StyledLink href="/pricing" >Start Your Free Trial</StyledLink>
-      </MobileMenu>
     </StyledNav>
   );
 };
