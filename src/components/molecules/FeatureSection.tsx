@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrainCog, Target, WrenchIcon, LayoutDashboard } from "lucide-react";
-import { Container, MainHeading, Subtitle, LayoutWrapper, Card, CardTitle, List, ListItem, TaskIcon, ItemTitle, ItemDescription, ArrowContainer, FeatureIcon, CTAButton, CardFeatures } from '@styles/styles'; // Make sure to use the correct path
+import { Container, MainHeading, Subtitle, LayoutWrapper, Card, CardTitle, List, ListItem, TaskIcon, ItemTitle, ItemDescription, ArrowContainer, FeatureIcon, CTAButton, CardFeatures } from '@styles/styles'; 
 
 const TaskFeaturePanel = () => {
   const tasks = [

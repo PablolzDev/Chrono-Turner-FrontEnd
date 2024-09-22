@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { 
-  Button, 
+  ButtonA, 
   ContainerLogo, 
   ErrorMessage, 
   ImageContainer, 
@@ -123,7 +123,7 @@ const AuthForm: React.FC = () => {
 
         {error && <ErrorMessage>{error}</ErrorMessage>}
         
-        <Button type="submit">{isLogin ? 'Sign In' : 'Sign Up'}</Button>
+        <ButtonA type="submit">{isLogin ? 'Sign In' : 'Sign Up'}</ButtonA>
         <SigInOption>
           <Span>{isLogin ? "Don't have an account?" : "Already have an account?"}</Span>
           <Link href="#" onClick={toggleAuthMode}>{isLogin ? 'Sign up' : 'Sign in'}</Link>
