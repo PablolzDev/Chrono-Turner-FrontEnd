@@ -17,7 +17,7 @@ export default function PricingComponent() {
     {
       name: 'Pro',
       price: '$3',
-      features: ['Unlimited projects', 'Unlimited tasks', 'Advanced task management', 'Team collaboration'],
+      features: ['Basic task management (up to 50 tasks)', 'Unlimited tasks', 'Advanced task management', 'Team collaboration'],
       cta: 'Get started',
     },
     {
@@ -71,6 +71,5 @@ export default function PricingComponent() {
       </PricingGrid>
     </Container>
   </PricingSection>
-
   )
 }
