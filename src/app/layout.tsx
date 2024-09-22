@@ -23,7 +23,7 @@ const RootLayout = ({ children }: LayoutProps) => {
         {/* Aplicar GlobalStyle */}
         <GlobalStyle /> 
         <div className="relative min-h-screen flex flex-col">
-          <Nav />
+          
           <main className="flex-grow">
             {children}
           </main>

@@ -86,8 +86,12 @@ export const Nav = styled.nav`
   left: 0;
   right: 0;
   padding: 0.25rem;
+
   width: 100%;
-  height: 80px;
+
+  max-height: 70px;
+  height: 100%;
+ 
   backdrop-filter: blur(10px);
   z-index: 20;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -148,6 +152,7 @@ export const StyledLink = styled(Link)<LinkProps>`
   // Tus estilos aquí
   background-color: var(--accent);
   width: 220px;
+  height: 40px;
   font-size: 1.1rem;
   color: white;
   padding: 10px 20px;
@@ -181,45 +186,6 @@ export const NbgButton = styled(Link)`
     border: none;
     border-radius: 5px;
   }
-`;
-
-export const HamburgerButton = styled.button`
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-`
-
-export const MobileMenu = styled.div<{ isOpen: boolean }>`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    z-index: 1000;
-  }
-`
-
-export const MobileNavLink = styled(NbgButton)`
-  padding: 0.5rem 0;
-`;
-
-export const MobileDivider = styled(Divider)`
-  width: 100%;
-  height: 1px;
-  margin: 0.5rem 0;
 `;
 
 
