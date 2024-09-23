@@ -20,41 +20,41 @@ const TaskFeaturePanel = () => {
 
   return (
     <Container>
-      <MainHeading>Simplify Your Day</MainHeading>
-      <Subtitle>Organize your tasks, optimize your time, and reach your goals with ease.</Subtitle>
-      <LayoutWrapper>
-        <Card>
-          <CardTitle>Your Tasks</CardTitle>
-          <List>
-            {tasks.map((task, index) => (
-              <ListItem key={index}>
-                <TaskIcon>{task.icon}</TaskIcon>
-                <div>
-                  <ItemTitle>{task.title}</ItemTitle>
-                  <ItemDescription>{task.description}</ItemDescription>
-                </div>
-              </ListItem>
-            ))}
-          </List>
-        </Card>
-        <ArrowContainer></ArrowContainer>
-        <CardFeatures>
-          <CardTitle>Features</CardTitle>
-          <List>
-            {features.map((feature, index) => (
-              <ListItem key={index}>
-                <FeatureIcon as={feature.icon} color={feature.color} />
-                <div>
-                  <ItemTitle>{feature.title}</ItemTitle>
-                  <ItemDescription>{feature.description}</ItemDescription>
-                </div>
-              </ListItem>
-            ))}
-          </List>
-        </CardFeatures>
-      </LayoutWrapper>
-      <CTAButton>Start Your Free Trial</CTAButton>
-    </Container>
+    <MainHeading>Simplify Your Day</MainHeading>
+    <Subtitle>Organize your tasks, optimize your time, and reach your goals with ease.</Subtitle>
+    <LayoutWrapper>
+      <Card className="task-card">
+        <CardTitle>Your Tasks</CardTitle>
+        <List>
+          {tasks.map((task, index) => (
+            <ListItem key={index}>
+              <TaskIcon>{task.icon}</TaskIcon>
+              <div>
+                <ItemTitle>{task.title}</ItemTitle>
+                <ItemDescription>{task.description}</ItemDescription>
+              </div>
+            </ListItem>
+          ))}
+        </List>
+      </Card>
+      <ArrowContainer className="arrow-container"></ArrowContainer>
+      <CardFeatures className="feature-card">
+        <CardTitle>Features</CardTitle>
+        <List>
+          {features.map((feature, index) => (
+            <ListItem key={index}>
+              <FeatureIcon as={feature.icon} color={feature.color} />
+              <div>
+                <ItemTitle>{feature.title}</ItemTitle>
+                <ItemDescription>{feature.description}</ItemDescription>
+              </div>
+            </ListItem>
+          ))}
+        </List>
+      </CardFeatures>
+    </LayoutWrapper>
+    <CTAButton>Start Your Free Trial</CTAButton>
+  </Container>
   );
 };
 

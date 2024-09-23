@@ -1,7 +1,7 @@
 "use client"
 
 import Login from '@/components/organisms/FormContainer';
-import React, { useState } from 'react';
+import React from 'react';
 
 const Auth: React.FC = () => {
   return (

@@ -31,6 +31,14 @@ export const PricingGrid = styled.div`
 `
 
 export const PricingSection = styled.div`
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+
 
   padding: 6rem 1.5rem;
 

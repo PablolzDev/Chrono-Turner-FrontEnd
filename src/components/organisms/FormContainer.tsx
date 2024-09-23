@@ -1,19 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { 
-  ButtonA, 
-  ContainerLogo, 
-  ErrorMessage, 
-  ImageContainer, 
-  Img, 
-  Input, 
-  Label, 
-  LoginContainer, 
-  LoginForm, 
-  SigInOption, 
-  Span, 
-  Title 
-} from '@/styles/styles';
+import {ButtonA,ContainerLogo,ErrorMessage,ImageContainer,Img,Input,Label,LoginContainer,LoginForm,SigInOption,Span,Title} from '@/styles/styles';
 import { ContainerPass } from '../../styles/styles';
 import Link from 'next/link';
 
@@ -86,7 +73,7 @@ const AuthForm: React.FC = () => {
         </ContainerLogo>
         <Title>{isLogin ? 'Sign In' : 'Sign Up'}</Title>
         <Span>{isLogin ? 'Enter your credentials to access your account' : 'Create your account'}</Span>
-        
+
         {!isLogin && (
           <>
             <Label>Name</Label>
@@ -122,7 +109,7 @@ const AuthForm: React.FC = () => {
         />
 
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        
+
         <ButtonA type="submit">{isLogin ? 'Sign In' : 'Sign Up'}</ButtonA>
         <SigInOption>
           <Span>{isLogin ? "Don't have an account?" : "Already have an account?"}</Span>
@@ -131,7 +118,7 @@ const AuthForm: React.FC = () => {
       </LoginForm>
       <ImageContainer>
         <Img src='/utils/9959434.png' alt="Decorative" />
-      </ImageContainer> 
+      </ImageContainer>
     </LoginContainer>
   );
 };
