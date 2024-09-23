@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle,css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 import Link, { LinkProps } from 'next/link';
 import { NavLink } from './Footer';
 
@@ -73,6 +73,16 @@ export const GlobalStyle = createGlobalStyle`
 
   main {
     height: 100vh;
+
+      .hamburger-icon {
+  display: block; /* Mostrar por defecto */
+}
+
+@media (min-width: 768px) {
+  .hamburger-icon {
+    display: none; /* Ocultar en pantallas grandes */
+  }
+}
   }
 `;
 
@@ -91,7 +101,6 @@ export const Nav = styled.nav`
 
   max-height: 70px;
   height: 100%;
- 
   backdrop-filter: blur(10px);
   z-index: 20;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -111,14 +120,48 @@ export const Nav = styled.nav`
 export const Navbar = styled.div`
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
   display: flex;
   gap: 1rem  ;
-  width: 80ch;
   max-width: 100%;
   max-height: 100%;
 
+
+
 `;
+
+export const ContainerNav = styled.div`
+
+  display: flex; 
+    flex-direction: row;
+    position: static; 
+    align-items: center;
+
+
+
+  @media (max-width: 768px) {
+  display: none; 
+  flex-direction: column;
+  position: absolute;
+  top: 70px; 
+  left: 0;
+  right: 0;
+  background: white; 
+  padding: 1rem;
+  z-index: 10;
+
+  &.open {
+    display: flex;
+    align-items: flex-start;
+    background: var(--accent);
+    
+    a{
+      color: white;
+    }
+  }
+  }
+
+`;
+
 
 export const BearLink = styled.a`
   color: canvasText;
@@ -148,7 +191,7 @@ export const Divider = styled.div`
 
 
 
-export const StyledLink = styled(Link)<LinkProps>`
+export const StyledLink = styled(Link) <LinkProps>`
   // Tus estilos aquí
   background-color: var(--accent);
   width: 220px;
@@ -169,8 +212,6 @@ export const StyledLink = styled(Link)<LinkProps>`
 `;
 
 export const NbgButton = styled(Link)`
-  // Tus estilos aquí
- 
   font-size: 1.1rem;
   color: var(--black);
   padding: 10px 20px;
@@ -347,7 +388,7 @@ export const Span = styled.span`
   margin-bottom: 35px;
 `;
 
-export const Label = styled.label `
+export const Label = styled.label`
   color:var(--black);
   font-size: 20px;
   
@@ -456,6 +497,11 @@ export const MainHeading = styled.h1`
   margin-bottom: 1rem;
   margin-left: 8rem;
   color: hsl(200, 19%, 18%);
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-left: unset;
+  }
 `;
 
 

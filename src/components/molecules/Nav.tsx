@@ -1,46 +1,40 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { Nav as StyledNav, Navbar, BearLink, MobileMenu, MobileNavLink, MobileDivider } from '@styles/styles';
-import { StyledLink, NbgButton, Divider, HamburgerButton, } from '@styles/styles';
-import { Menu, X } from 'lucide-react'
+"use client";
+import React, { useState } from 'react';
+import { Nav as StyledNav, Navbar, ContainerNav, StyledLink, NbgButton, Divider } from '@styles/styles';
+import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
-
-
-
+import Link from 'next/link';
 
 const Nav: React.FC = () => {
-  
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <StyledNav>
       <Navbar>
-        <BearLink
-          href="https://twitter.com/intent/follow?screen_name=jh3yy"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          <svg viewBox="0 0 969 955" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* SVG content without paths */}
-          </svg>
+        <Link href="/" passHref>
+          <Image
+            src="/utils/Logo.png"
+            alt="Descripción del logo"
+            width={80}
+            height={70}
+            style={{ cursor: 'pointer' }}
+          />
+        </Link>
+        <div className="hamburger hamburger-icon" onClick={toggleMenu}>
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </div>
+      </Navbar>
 
-
-        </BearLink>
-
-        <Image
-          src="/utils/Logo.png"
-          alt="Descripción del logo"
-          width={80} // Ancho deseado
-          height={70} // Alto deseado
-        />
+      <ContainerNav className={isOpen ? 'open' : ''}>
         <NbgButton href="/">Home</NbgButton>
         <NbgButton href="/pricing">Price</NbgButton>
-        <Divider aria-hidden="true"></Divider>
         <NbgButton href="/auth">Log In</NbgButton>
-        <StyledLink href="/pricing" >Start Your Free Trial</StyledLink>
-
-
-      </Navbar>
+        <StyledLink href="/pricing" className='start-free'>Start Your Free Trial</StyledLink>
+      </ContainerNav>
     </StyledNav>
   );
 };
