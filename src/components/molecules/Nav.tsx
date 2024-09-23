@@ -1,7 +1,10 @@
+
 "use client";
 import React, { useState } from 'react';
 import { Nav as StyledNav, Navbar, ContainerNav, StyledLink, NbgButton, Divider } from '@styles/styles';
 import { Menu, X } from 'lucide-react';
+
+
 import Image from 'next/image';
 import Link from 'next/link';
 

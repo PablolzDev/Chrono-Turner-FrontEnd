@@ -105,10 +105,10 @@ export const ContentCategories = styled.div`
   }
 `;
 
-export const Category = styled.label<{ active: boolean }>`
+export const Category = styled.label<{ $active: boolean }>`
   font-weight: 500;
-  color: ${props => props.active ? '#4f3ff0' : '#8e92a4'};
-  border-bottom: ${props => props.active ? '2px solid #4f3ff0' : '1px solid #ddd'};
+  color: ${props => props.$active ? '#4f3ff0' : '#8e92a4'};
+  border-bottom: ${props => props.$active ? '2px solid #4f3ff0' : '1px solid #ddd'};
   transition: 0.4s ease-in;
   padding: 20px 30px;
   cursor: pointer;
