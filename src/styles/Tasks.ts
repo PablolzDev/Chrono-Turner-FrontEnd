@@ -30,44 +30,64 @@ export const TaskManager = styled.div`
     flex-direction: column;
   }
 `;
+interface LeftContentProps {
+  isOpen: boolean;
+}
 
 export const LeftBar = styled.div`
   background-color: #f5f8ff;
   width: 215px;
   border-right: 1px solid #e3e7f7;
   position: relative;
-
   @media (max-width: 768px) {
-    width: 100%;
+    width: auto;
     border-right: none;
-    border-bottom: 1px solid #e3e7f7;
+    
+    button {
+      display: block;
+      padding: 10px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  @media (min-width: 769px) {
+    button {
+      display: none;
+    }
   }
 `;
 
-export const LeftContent = styled.div`
+export const LeftContent = styled.div<LeftContentProps>`
   padding-top: 40px;
   margin-top: 40px;
+  @media (max-width: 768px) {
+    display: ${props => props.isOpen ? 'block' : 'none'};
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 215px;
+    background-color: #f5f8ff;
+    z-index: 1000;
+    border-right: 1px solid #e3e7f7;
+    height: calc(100vh - 100%);
+    overflow-y: auto;
+  }
 `;
 
 export const MenuItem = styled.li`
+  list-style: none;
+  padding: 10px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  color: #353536;
-  margin-bottom: 14px;
-  font-weight: 500;
-  cursor: pointer;
-
+  
   svg {
-    width: 14px;
-    height: 14px;
-    color: currentColor;
     margin-right: 10px;
   }
-
-  &:hover {
-    color: #4f3ff0;
-  }
 `;
+
+
 
 export const PageContent = styled.div`
   display: flex;

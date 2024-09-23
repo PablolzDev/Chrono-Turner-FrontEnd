@@ -242,7 +242,7 @@ export const HeroSection = styled.section`
   a {
     color: canvas;
     background: var(--accent);
-    border-radius: 5px;
+    border-radius: 2px;
     text-decoration: none;
     padding: 1rem 2.5rem;
     font-size: 1.1rem;
@@ -354,63 +354,97 @@ export const Footer = styled.footer`
 export const LoginContainer = styled.div`
   display: flex;
   height: 100vh;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const ContainerLogo = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
-  img{
+  
+  img {
     width: 30%;
+    
+    @media (max-width: 768px) {
+      width: 50%;
+    }
   }
-`
+`;
 
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding:  10%;
+  padding: 10%;
   gap: 5px;
   width: 50%;
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 5%;
+  }
 `;
 
 export const Title = styled.h2`
   font-size: 34px;
-  color:  var(--black);;
+  color: var(--black);
   text-align: center;
-
+  
+  @media (max-width: 768px) {
+    font-size: 28px;
+  }
 `;
 
 export const Span = styled.span`
   font-size: 1.2rem;
-  color: #666 ; 
+  color: #666;
   text-align: center;
   margin-bottom: 35px;
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
 `;
 
 export const Label = styled.label`
-  color:var(--black);
+  color: var(--black);
   font-size: 20px;
   
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
 `;
+
 export const Input = styled.input`
   margin-bottom: 15px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+  
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 export const ContainerPass = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  a{
+  
+  a {
     color: var(--black);
     font-size: 20px;
+    
+    @media (max-width: 768px) {
+      font-size: 16px;
+    }
   }
-`
+`;
 
 export const ButtonA = styled.button`
   padding: 10px;
@@ -421,9 +455,13 @@ export const ButtonA = styled.button`
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-
+  
   &:hover {
     background-color: var(--black);
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 
@@ -433,11 +471,15 @@ export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const Img = styled.img`
   width: 100%;
-`
+`;
 
 export const ErrorMessage = styled.p`
   color: red;
@@ -445,21 +487,19 @@ export const ErrorMessage = styled.p`
 `;
 
 export const SigInOption = styled.div`
-  color: hsl(200, 19%, 18%) ;
+  color: hsl(200, 19%, 18%);
   width: 100%;
   text-align: center;
-
-  p{
-    
-  }
-
-  a{
+  
+  a {
     color: var(--accent);
     margin: 5px;
   }
-
-
-`
+  
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
+`;
 
 export const FeatureItemWrapper = styled.div`
   display: flex;

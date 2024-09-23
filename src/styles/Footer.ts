@@ -50,6 +50,7 @@ export const Navigation = styled.nav`
 // Organisms
 export const FooterContainer = styled.footer`
   width: 70%;
+  height: 100px;
  
   border-top: 1px solid hsl(0, 0%, 80%);
   padding: 2rem 1rem;
