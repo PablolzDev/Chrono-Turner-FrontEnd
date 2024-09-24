@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Calendar, Star, Hash, Users, Trash, Inbox, Home, Sun, Zap, Menu } from 'lucide-react';
+import { Calendar, Inbox, Menu, ChartBarStacked, LayoutDashboard } from 'lucide-react';
 import styled from 'styled-components';
 
 interface LeftContentProps {
   isOpen: boolean;
+}
+
+interface LeftBarProps {
+  activeCategory: string;
+  setActiveCategory: (category: string) => void;
 }
 
 const LeftBar = styled.div`
@@ -46,6 +51,7 @@ const MenuButton = styled.button`
 
 const LeftContent = styled.div<LeftContentProps>`
   padding-top: 40px;
+  margin-top: 40px;
 `;
 
 const MenuItem = styled.li`
@@ -69,15 +75,10 @@ const LeftBarComponent: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const menuItems: MenuItemType[] = [
-    { icon: <Inbox />, text: 'Inbox' },
-    { icon: <Star />, text: 'Today' },
+    { icon: <Inbox />, text: 'All' },
+    { icon: <ChartBarStacked />, text: 'Status' },
     { icon: <Calendar />, text: 'Upcoming' },
-    { icon: <Hash />, text: 'Important' },
-    { icon: <Users />, text: 'Meetings' },
-    { icon: <Trash />, text: 'Trash' },
-    { icon: <Home />, text: 'Family' },
-    { icon: <Sun />, text: 'Vacation' },
-    { icon: <Zap />, text: 'Festival' },
+    { icon: <LayoutDashboard />, text: 'Dash Board' },
   ];
 
   return (

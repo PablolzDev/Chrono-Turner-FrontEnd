@@ -36,7 +36,7 @@ const Nav: React.FC = () => {
         <NbgButton href="/">Home</NbgButton>
         <NbgButton href="/pricing">Price</NbgButton>
         <NbgButton href="/auth">Log In</NbgButton>
-        <StyledLink href="/pricing" className='start-free'>Start Your Free Trial</StyledLink>
+        <StyledLink href="/TaskApp" className='start-free'>Start Your Free Trial</StyledLink>
       </ContainerNav>
     </StyledNav>
   );
