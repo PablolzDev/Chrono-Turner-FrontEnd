@@ -1,8 +1,5 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Link, { LinkProps } from 'next/link';
-import { NavLink } from './Footer';
-
-
 
 
 // Global Styles
@@ -194,12 +191,13 @@ export const Divider = styled.div`
 export const StyledLink = styled(Link) <LinkProps>`
   // Tus estilos aquí
   background-color: var(--accent);
-  width: 220px;
+  width: 200px;
   height: 40px;
   font-size: 1.1rem;
   color: white;
   padding: 10px 20px;
   margin-top: 15px;
+  margin-right: 20px;
   border: none;
   border-radius: 5px;
   text-decoration: none;

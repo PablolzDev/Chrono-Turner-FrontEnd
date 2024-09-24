@@ -41,9 +41,7 @@ const TaskManagerPage: React.FC = () => {
           </ContentCategories>
           <TasksWrapper>
             <TaskList />
-            <Fab size="medium" color="secondary" aria-label="add">
-              <AddIcon onClick={() => setIsAddTaskModalOpen(true)} />
-            </Fab>
+          
           </TasksWrapper>
         </PageContent>
       </TaskManager>
