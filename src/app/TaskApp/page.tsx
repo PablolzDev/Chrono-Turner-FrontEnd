@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import Nav from '@/components/molecules/Nav';
 import LeftBarComponent from '@components/molecules/TaskComponents/LeftBar';
 import TaskList from '@components/molecules/TaskComponents/TaskList';
-
 import AddTaskModal from '@components/molecules/TaskComponents/AddTaskModal';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
-
 import { GlobalStyle, Header, PageContent, TaskManager, TasksWrapper, ContentCategories, Category } from '@/styles/Tasks';
 
 const TaskManagerPage: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [isAddTaskModalOpen, setIsAddTaskModalOpen] = useState<boolean>(false);
+
+  // Definir categorías
+  const categories = [
+    { id: '1', name: 'Work' },
+    { id: '2', name: 'Personal' },
+    { id: '3', name: 'Shopping' }
+    // Agrega las categorías que necesites
+  ];
 
   const handleAddTask = (task: any) => {
     // Implementar la lógica para añadir la tarea
@@ -41,15 +45,19 @@ const TaskManagerPage: React.FC = () => {
           </ContentCategories>
           <TasksWrapper>
             <TaskList />
-          
           </TasksWrapper>
         </PageContent>
       </TaskManager>
+      
+      
       <AddTaskModal
         isOpen={isAddTaskModalOpen}
         onClose={() => setIsAddTaskModalOpen(false)}
         onAddTask={handleAddTask}
+        categories={categories}  
       />
+      
+      
     </>
   );
 };
