@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+ import React, { useState } from 'react';
 import styled from 'styled-components';
 import AddTaskModal from './AddTaskModal';
 import TaskDetailModal from './TaskDetailModal';
@@ -13,16 +13,12 @@ interface TaskItem {
   reminders?: string;
 }
 
-interface TaskListProps {
-  activeCategory: string;
-}
-
 const TaskListContainer = styled.div`
   font-family: 'DM Sans', sans-serif;
   color: var(--black);
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px; 
 `;
 
 const Task = styled.div`
@@ -44,9 +40,9 @@ const TaskInfo = styled.div`
   align-items: center;
 `;
 
-const TaskText = styled.span<{ completed: boolean }>`
+const TaskText = styled.span<{ $completed: boolean }>`
   margin-left: 10px;
-  text-decoration: ${props => props.completed ? 'line-through' : 'none'};
+  text-decoration: ${({ $completed }) => ($completed ? 'line-through' : 'none')};
 `;
 
 const TaskMetadata = styled.div`
@@ -107,11 +103,11 @@ const TaskList: React.FC = () => {
     ));
   };
 
-  const addTask = (newTask: Omit<TaskItem, 'id'>) => {
+  const addTask = (newTask: Omit<TaskItem, 'id' | 'completed'>) => {
     const id = Math.max(0, ...tasks.map(t => t.id)) + 1;
-    setTasks([...tasks, { ...newTask, id }]);
+    setTasks([...tasks, { ...newTask, id, completed: false }]);
   };
-
+  
   const updateTask = (updatedTask: TaskItem) => {
     setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
   };
@@ -145,7 +141,7 @@ const TaskList: React.FC = () => {
                 toggleTaskCompletion(task.id);
               }}
             />
-            <TaskText completed={task.completed}>{task.text}</TaskText>
+            <TaskText $completed={task.completed}>{task.text}</TaskText>
           </TaskInfo>
           <TaskMetadata>
             {task.dueDate && <DueDate>{formatDate(task.dueDate)}</DueDate>}
