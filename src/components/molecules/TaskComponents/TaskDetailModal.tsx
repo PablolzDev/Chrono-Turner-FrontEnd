@@ -1,14 +1,23 @@
+"use client"
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 interface TaskItem {
-  id: number;
-  text: string;
+  id: string;
+  name: string;
   description: string;
-  completed: boolean;
-  tag: string;
-  dueDate?: string;
-  reminders?: string;
+  status_task: number;
+  status_sub_task: number;
+  category_id: string;
+  expiration_date: string;
+  priority_id: string;
+  goal_id: string;
+  user_entity_id: string;
+}
+
+interface Category {
+  id: string;
+  name: string;
 }
 
 interface TaskDetailModalProps {
@@ -16,7 +25,8 @@ interface TaskDetailModalProps {
   onClose: () => void;
   task: TaskItem;
   onUpdateTask: (updatedTask: TaskItem) => void;
-  onDeleteTask: (id: number) => void;
+  onDeleteTask: (id: string) => void;
+  categories: Category[];
 }
 
 const ModalOverlay = styled.div<{ $isOpen: boolean }>`
@@ -81,6 +91,24 @@ const TextArea = styled.textarea`
   }
 `;
 
+const Select = styled.select`
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: var(--black);
+  background-color: var(--card);
+  transition: border-color 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+`;
+
 const ButtonGroup = styled.div`
   display: flex;
   justify-content: space-between;
@@ -133,31 +161,16 @@ const DeleteButton = styled(Button)`
   }
 `;
 
-const StateToggle = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-`;
-
-const ToggleLabel = styled.label`
-  margin-left: 10px;
-  font-size: 16px;
-`;
-
-const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ isOpen, onClose, task, onUpdateTask, onDeleteTask }) => {
+const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ isOpen, onClose, task, onUpdateTask, onDeleteTask, categories }) => {
   const [editedTask, setEditedTask] = useState<TaskItem>(task);
 
   useEffect(() => {
     setEditedTask(task);
   }, [task]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setEditedTask(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleStateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEditedTask(prev => ({ ...prev, completed: e.target.checked }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -179,9 +192,10 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ isOpen, onClose, task
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
-            name="text"
-            value={editedTask.text}
+            name="name"
+            value={editedTask.name}
             onChange={handleInputChange}
+            placeholder="Task Name"
             required
           />
           <TextArea
@@ -190,23 +204,29 @@ const TaskDetailModal: React.FC<TaskDetailModalProps> = ({ isOpen, onClose, task
             onChange={handleInputChange}
             placeholder="Description"
           />
+          <Select
+            name="status_task"
+            value={editedTask.status_task}
+            onChange={handleInputChange}
+          >
+            <option value={0}>In Progress</option>
+            <option value={1}>Completed</option>
+          </Select>
+          <Select
+            name="category_id"
+            value={editedTask.category_id}
+            onChange={handleInputChange}
+          >
+            {categories.map(category => (
+              <option key={category.id} value={category.id}>{category.name}</option>
+            ))}
+          </Select>
           <Input
             type="date"
-            name="dueDate"
-            value={editedTask.dueDate}
+            name="expiration_date"
+            value={editedTask.expiration_date}
             onChange={handleInputChange}
           />
-          <StateToggle>
-            <input
-              type="checkbox"
-              checked={editedTask.completed}
-              onChange={handleStateChange}
-              id="taskState"
-            />
-            <ToggleLabel htmlFor="taskState">
-              {editedTask.completed ? 'Completed' : 'In Progress'}
-            </ToggleLabel>
-          </StateToggle>
           <ButtonGroup>
             <CancelButton type="button" onClick={onClose}>Cancel</CancelButton>
             <SaveButton type="submit">Save Changes</SaveButton>

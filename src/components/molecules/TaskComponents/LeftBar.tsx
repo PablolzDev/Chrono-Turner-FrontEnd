@@ -2,6 +2,9 @@
 import React, { useState } from 'react';
 import { Calendar, Inbox, Menu, ChartBarStacked, LayoutDashboard } from 'lucide-react';
 import styled from 'styled-components';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { deepPurple } from '@mui/material/colors';
 
 interface LeftContentProps {
   $isOpen: boolean;
@@ -93,6 +96,10 @@ const LeftBarComponent: React.FC = () => {
       </MenuButton>
       <LeftBar $isOpen={isMenuOpen} className={isMenuOpen ? 'open' : ''}>
         <LeftContent $isOpen={isMenuOpen}>
+    
+           <Avatar sx={{ bgcolor: deepPurple[500], marginLeft: '20px'} }>P</Avatar>
+          
+           
           <ul>
             {menuItems.map((item, index) => (
               <MenuItem key={index}>
