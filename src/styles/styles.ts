@@ -262,6 +262,30 @@ export const HeroSection = styled.section`
   }
 `;
 
+export const Photo  = styled.video`
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: block;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 6px;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 4px;
+  }
+`;
+
 // Video Styles
 export const Video = styled.video`
   width: 100%;

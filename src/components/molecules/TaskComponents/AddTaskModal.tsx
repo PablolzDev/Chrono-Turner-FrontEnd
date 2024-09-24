@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 interface TaskItem {
-  id?: number;
-  text: string;
+  name: string;
   description: string;
-  completed: boolean;
-  tag: string;
-  dueDate?: string;
-  priority?: string;
-  reminders?: string;
+  status_task: number;
+  status_sub_task: number;
+  category_id: string;
+  expiration_date: string;
+  priority_id: string;
+  goal_id: string;
+  user_entity_id: string;
 }
+
 
 interface AddTaskModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAddTask: (task: Omit<TaskItem, 'id' | 'completed'>) => void;
+  onAddTask: (task: TaskItem) => void;
+  categories: { id: string; name: string }[];
 }
 
 const ModalOverlay = styled.div<{ $isOpen: boolean }>`
@@ -105,14 +108,19 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, onAddTask 
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAddTask({ 
-      text: taskName, 
-      description, 
-      tag: 'new',
-      dueDate,
-      priority,
-      reminders
+    onAddTask({
+      name: taskName,  // Mapea `taskName` a `name`
+      description,
+      status_task: 0,  // Puedes establecer valores por defecto o ajustarlos según tu lógica
+      status_sub_task: 0,
+      category_id: '',  // Necesitas obtener este valor si es requerido
+      expiration_date: dueDate,  // `dueDate` se mapea a `expiration_date`
+      priority_id: priority,  // `priority` se mapea a `priority_id`
+      goal_id: '',  // Puedes agregar el valor adecuado o dejarlo vacío
+      user_entity_id: ''  // Lo mismo para `user_entity_id`
     });
+  
+    // Restablecer los campos después de agregar la tarea
     setTaskName('');
     setDescription('');
     setDueDate('');
@@ -120,22 +128,40 @@ const AddTaskModal: React.FC<AddTaskModalProps> = ({ isOpen, onClose, onAddTask 
     setReminders('');
     onClose();
   };
+  
 
   return (
     <ModalOverlay $isOpen={isOpen} onClick={onClose}>
-      <ModalContent onClick={(e: React.MouseEvent) => e.stopPropagation()}>
+      <ModalContent onClick={(e) => e.stopPropagation()}>
         <form onSubmit={handleSubmit}>
           <Input
             type="text"
             placeholder="Task name"
             value={taskName}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setTaskName(e.target.value)}
+            onChange={(e) => setTaskName(e.target.value)}
             required
           />
           <TextArea
             placeholder="Description"
             value={description}
-            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setDescription(e.target.value)}
+            onChange={(e) => setDescription(e.target.value)}
+          />
+          <Input
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="Priority"
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          />
+          <Input
+            type="text"
+            placeholder="Reminders"
+            value={reminders}
+            onChange={(e) => setReminders(e.target.value)}
           />
           <OptionsRow>
             <OptionButton type="button" onClick={() => setDueDate(new Date().toISOString().split('T')[0])}>

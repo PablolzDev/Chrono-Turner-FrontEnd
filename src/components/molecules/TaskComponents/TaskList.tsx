@@ -1,16 +1,20 @@
- import React, { useState } from 'react';
+"use client"
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import AddTaskModal from './AddTaskModal';
 import TaskDetailModal from './TaskDetailModal';
 
 interface TaskItem {
-  id: number;
-  text: string;
+  id: string;
+  name: string;
   description: string;
-  completed: boolean;
-  tag: string;
-  dueDate?: string;
-  reminders?: string;
+  status_task: number;
+  status_sub_task: number;
+  category_id: string;
+  expiration_date: string;
+  priority_id: string;
+  goal_id: string;
+  user_entity_id: string;
 }
 
 const TaskListContainer = styled.div`
@@ -89,31 +93,92 @@ const AddTaskButton = styled.button`
 `;
 
 const TaskList: React.FC = () => {
-  const [tasks, setTasks] = useState<TaskItem[]>([
-    { id: 1, text: 'Dashboard Design Implementation', description: '', completed: true, tag: 'approved', dueDate: '2024-09-30' },
-    { id: 2, text: 'Create new prototype', description: '', completed: false, tag: 'progress', dueDate: '2024-10-15' },
-  ]);
+  const [tasks, setTasks] = useState<TaskItem[]>([]);
+  const [categories, setCategories] = useState<{[key: string]: {name: string, colour: string}}>({});
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isDetailModalOpen, setIsDetailModalOpen] = useState(false);
   const [selectedTask, setSelectedTask] = useState<TaskItem | null>(null);
 
-  const toggleTaskCompletion = (id: number) => {
-    setTasks(tasks.map(task =>
-      task.id === id ? { ...task, completed: !task.completed } : task
-    ));
+  useEffect(() => {
+    fetchTasks();
+    fetchCategories();
+  }, []);
+
+  const fetchTasks = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/tasks');
+      const data = await response.json();
+      setTasks(data);
+    } catch (error) {
+      console.error('Error fetching tasks:', error);
+    }
   };
 
-  const addTask = (newTask: Omit<TaskItem, 'id' | 'completed'>) => {
-    const id = Math.max(0, ...tasks.map(t => t.id)) + 1;
-    setTasks([...tasks, { ...newTask, id, completed: false }]);
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/categories');
+      const data = await response.json();
+      const categoriesMap = data.reduce((acc: any, category: any) => {
+        acc[category.id] = { name: category.name, colour: category.colour };
+        return acc;
+      }, {});
+      setCategories(categoriesMap);
+    } catch (error) {
+      console.error('Error fetching categories:', error);
+    }
+  };
+
+  const toggleTaskCompletion = async (id: string) => {
+    const task = tasks.find(t => t.id === id);
+    if (task) {
+      const updatedTask = { ...task, status_task: task.status_task === 1 ? 0 : 1 };
+      try {
+        await fetch(`http://localhost:3000/tasks/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(updatedTask),
+        });
+        setTasks(tasks.map(t => t.id === id ? updatedTask : t));
+      } catch (error) {
+        console.error('Error updating task:', error);
+      }
+    }
+  };
+
+  const addTask = async (newTask: Omit<TaskItem, 'id'>) => {
+    try {
+      const response = await fetch('http://localhost:3000/tasks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newTask),
+      });
+      const addedTask = await response.json();
+      setTasks(prevTasks => [...prevTasks, addedTask]);
+    } catch (error) {
+      console.error('Error adding task:', error);
+    }
   };
   
-  const updateTask = (updatedTask: TaskItem) => {
-    setTasks(tasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+  const updateTask = async (updatedTask: TaskItem) => {
+    try {
+      await fetch(`http://localhost:3000/tasks/${updatedTask.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedTask),
+      });
+      setTasks(prevTasks => prevTasks.map(task => task.id === updatedTask.id ? updatedTask : task));
+    } catch (error) {
+      console.error('Error updating task:', error);
+    }
   };
 
-  const deleteTask = (id: number) => {
-    setTasks(tasks.filter(task => task.id !== id));
+  const deleteTask = async (id: string) => {
+    try {
+      await fetch(`http://localhost:3000/tasks/${id}`, { method: 'DELETE' });
+      setTasks(prevTasks => prevTasks.filter(task => task.id !== id));
+    } catch (error) {
+      console.error('Error deleting task:', error);
+    }
   };
 
   const openTaskDetail = (task: TaskItem) => {
@@ -135,17 +200,19 @@ const TaskList: React.FC = () => {
           <TaskInfo>
             <input
               type="checkbox"
-              checked={task.completed}
+              checked={task.status_task === 1}
               onChange={(e) => {
                 e.stopPropagation();
                 toggleTaskCompletion(task.id);
               }}
             />
-            <TaskText $completed={task.completed}>{task.text}</TaskText>
+            <TaskText $completed={task.status_task === 1}>{task.name}</TaskText>
           </TaskInfo>
           <TaskMetadata>
-            {task.dueDate && <DueDate>{formatDate(task.dueDate)}</DueDate>}
-            <Tag className={task.tag}>{task.tag}</Tag>
+            {task.expiration_date && <DueDate>{formatDate(task.expiration_date)}</DueDate>}
+            <Tag style={{backgroundColor: categories[task.category_id]?.colour}}>
+              {categories[task.category_id]?.name}
+            </Tag>
           </TaskMetadata>
         </Task>
       ))}
@@ -153,6 +220,7 @@ const TaskList: React.FC = () => {
         isOpen={isAddModalOpen}
         onClose={() => setIsAddModalOpen(false)}
         onAddTask={addTask}
+        categories={Object.entries(categories).map(([id, cat]) => ({ id, name: cat.name }))}
       />
       {selectedTask && (
         <TaskDetailModal
@@ -161,6 +229,7 @@ const TaskList: React.FC = () => {
           task={selectedTask}
           onUpdateTask={updateTask}
           onDeleteTask={deleteTask}
+          categories={Object.entries(categories).map(([id, cat]) => ({ id, name: cat.name }))}
         />
       )}
     </TaskListContainer>
