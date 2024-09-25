@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chrono-Turner
 
-## Getting Started
+## Version: 0.1.0
 
-First, run the development server:
+Chrono-Turner is a Next.js-based front-end project that likely involves time-related features or animations, given its name and the inclusion of GSAP in the dependencies.
 
-```bash
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+* You have installed Node.js (version 14 or later recommended)
+* You have a basic understanding of React and Next.js
+
+## Installing Chrono-Turner
+
+To install Chrono-Turner, follow these steps:
+
+1. Clone the repository
+2. Navigate to the project directory
+3. Run `npm install` to install the dependencies
+
+## Using Chrono-Turner
+
+To use Chrono-Turner, follow these steps:
+
+```
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will start the development server on port 4000. You can access the application by navigating to `http://localhost:4000` in your web browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- `npm run dev`: Starts the development server on port 4000
+- `npm run build`: Builds the application for production usage
+- `npm run start`: Starts a production server
+- `npm run lint`: Runs the linter to check for code style issues
+- `npx json-server ./publi/db.json`: Just if the project Needed it
+## Dependencies
 
-## Learn More
+This project uses several key dependencies:
 
-To learn more about Next.js, take a look at the following resources:
+- Next.js (v14.2.7) as the React framework
+- React (v18) and React DOM for building user interfaces
+- Material-UI (v6.1.1) for UI components
+- GSAP (v3.12.5) for animations
+- Axios (v1.7.7) for making HTTP requests
+- React Beautiful DND (v13.1.1) for drag and drop functionality
+- Styled Components (v6.1.13) for component-level styling
+- React Hot Toast (v2.4.1) for notifications
+- JSON Server (v1.0.0-beta.2) for a full fake REST API
+- Vercel (v37.5.4) for deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development Dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The project is set up with TypeScript and uses Babel for transpilation. It also includes ESLint for code linting and Tailwind CSS for utility-first CSS.
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This is a Next.js project, so it likely follows the standard Next.js directory structure:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```
+chrono-turner/
+├── App/
+├── public/
+├── styles/
+├── components/
+├── hooks/
+└── ...
+```
