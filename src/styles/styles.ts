@@ -1,8 +1,5 @@
-import styled, { createGlobalStyle, css } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import Link, { LinkProps } from 'next/link';
-import { NavLink } from './Footer';
-
-
 
 
 // Global Styles
@@ -194,12 +191,13 @@ export const Divider = styled.div`
 export const StyledLink = styled(Link) <LinkProps>`
   // Tus estilos aquí
   background-color: var(--accent);
-  width: 220px;
+  width: 200px;
   height: 40px;
   font-size: 1.1rem;
   color: white;
   padding: 10px 20px;
   margin-top: 15px;
+  margin-right: 20px;
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -261,6 +259,30 @@ export const HeroSection = styled.section`
     &:hover::after, &:focus-visible::after {
       background: hsl(0 0% 100% / 0.1);
     }
+  }
+`;
+
+export const Photo  = styled.video`
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  display: block;
+
+  @media (max-width: 1024px) {
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    border-radius: 6px;
+  }
+
+  @media (max-width: 480px) {
+    border-radius: 4px;
   }
 `;
 

@@ -64,14 +64,98 @@
   "tasks": [
     {
       "id": "1",
-      "description": "Complete report",
       "status_sub_task": 0,
       "status_task": 1,
-      "expiration_date": "2024-09-15T12:00:00",
+      "expiration_date": "2024-10-15T00:00:00Z",
       "category_id": "1",
+      "description": "Implement new features for the dashboard",
       "goal_id": "1",
+      "name": "Create new prototype",
+      "priority_id": "2",
+      "user_entity_id": "1"
+    },
+    {
+      "id": "2",
+      "status_sub_task": 0,
+      "status_task": 0,
+      "expiration_date": "2024-09-30T00:00:00Z",
+      "category_id": "2",
+      "description": "Review and update all API endpoints",
+      "goal_id": "1",
+      "name": "API Documentation",
       "priority_id": "1",
       "user_entity_id": "1"
+    },
+    {
+      "id": "3",
+      "status_sub_task": 0,
+      "status_task": 0,
+      "expiration_date": "2024-11-20T00:00:00Z",
+      "category_id": "3",
+      "description": "Develop and implement new user authentication system",
+      "goal_id": "2",
+      "name": "Enhance Security",
+      "priority_id": "1",
+      "user_entity_id": "1"
+    },
+    {
+      "id": "4",
+      "status_sub_task": 0,
+      "status_task": 1,
+      "expiration_date": "2024-08-31T00:00:00Z",
+      "category_id": "4",
+      "description": "Create wireframes and mockups for the mobile app",
+      "goal_id": "3",
+      "name": "Mobile App Design",
+      "priority_id": "2",
+      "user_entity_id": "1"
+    },
+    {
+      "id": "5",
+      "status_sub_task": 0,
+      "status_task": 0,
+      "expiration_date": "2024-12-01T00:00:00Z",
+      "category_id": "5",
+      "description": "Optimize database queries for improved performance",
+      "goal_id": "2",
+      "name": "Database Optimization",
+      "priority_id": "3",
+      "user_entity_id": "1"
+    },
+    {
+      "id": "7",
+      "status_sub_task": 0,
+      "status_task": 1,
+      "expiration_date": "2024-09-15T00:00:00Z",
+      "category_id": "3",
+      "description": "Set up continuous integration and deployment pipelineasdad",
+      "goal_id": "3",
+      "name": "Manejar carro",
+      "priority_id": "1",
+      "user_entity_id": "1",
+      "text": "Create new prototype"
+    },
+    {
+      "id": "c0fe",
+      "text": "Cocinar en la noche ",
+      "description": "Cocinar pollo con arroz ",
+      "tag": "new",
+      "dueDate": "2024-09-27",
+      "priority": "High ",
+      "reminders": "none",
+      "name": "javier"
+    },
+    {
+      "id": "cbbd",
+      "name": "sadasd",
+      "description": "asdsa",
+      "status_task": 0,
+      "status_sub_task": 0,
+      "category_id": "",
+      "expiration_date": "",
+      "priority_id": "",
+      "goal_id": "",
+      "user_entity_id": ""
     }
   ],
   "goals": [

@@ -1,7 +1,7 @@
 import React from 'react';
-
+import Image from './image'
 import { CheckCircle, Zap, Smile } from 'lucide-react';
-import { ContainerChoose,TextSection,TitleChoose,Description,FeatureListChoose, FeatureItemChoose, IconWrapper, Video } from '@styles/styles';
+import { ContainerChoose, TextSection, TitleChoose, Description, FeatureListChoose, FeatureItemChoose, IconWrapper, Photo } from '@styles/styles';
 
 const WhyChooseUs = () => {
   return (
@@ -9,9 +9,9 @@ const WhyChooseUs = () => {
       <TextSection>
         <TitleChoose>Why Choose Our App</TitleChoose>
         <Description>
-          In a world of complex productivity tools, our app stands out with its 
-          refreshing simplicity and powerful functionality. We have reimagined task 
-          management to align with your natural workflow, making productivity 
+          In a world of complex productivity tools, our app stands out with its
+          refreshing simplicity and powerful functionality. We have reimagined task
+          management to align with your natural workflow, making productivity
           feel effortless and even enjoyable.
         </Description>
         <FeatureListChoose>
@@ -29,9 +29,9 @@ const WhyChooseUs = () => {
           </FeatureItemChoose>
         </FeatureListChoose>
       </TextSection>
-      <Video>
-        
-      </Video>
+
+        <Image />
+      
     </ContainerChoose>
   );
 };
