@@ -69,7 +69,7 @@ const AuthForm: React.FC = () => {
     <LoginContainer>
       <LoginForm onSubmit={handleSubmit}>
         <ContainerLogo>
-          <Img src='/utils/LogoName.png' alt="Logo" />
+          <Img src="/utils/Logo.png" style={{ cursor: 'pointer' }} alt="Logo" />
         </ContainerLogo>
         <Title>{isLogin ? 'Sign In' : 'Sign Up'}</Title>
         <Span>{isLogin ? 'Enter your credentials to access your account' : 'Create your account'}</Span>
