@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import Link from 'next/link'
 import { HeroSection, Content, PanelContainer } from '@styles/styles'; // Asegúrate de importar correctamente
 import Video from '@components/molecules/Video';
 import AppDescription from '../UI/AppDescription';
@@ -15,15 +16,8 @@ const Header: React.FC = () => (
     <HeroSection>
       <Content>
         <h1>Turning chaos into  <span>clarity</span></h1>
-        <p>Una nueva era de organización personal está a punto de</p>
-        <p>comenzar. ¿Estás listo para descubrirla?</p>
-        <a
-          href="https://twitter.com/intent/follow?screen_name=jh3yy"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          Revelar el secreto
-        </a>
+        <p>A new era of personal organisation is about to begin...</p><p>Are you ready to discover it?</p>
+        <Link href="/pricing">Reveal the secret</Link>
       </Content>
     </HeroSection>
     <PanelContainer>
